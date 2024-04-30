@@ -1,0 +1,45 @@
+{
+  "name": "web-storage-cache-crypto",
+  "version": "0.0.3",
+  "author": "acanzaima",
+  "description": "Improve Web Storage Cache to support crypto",
+  "keywords": [
+    "localstorage",
+    "storage",
+    "expires",
+    "crypto"
+  ],
+  "type": "module",
+  "files": [
+    "dist",
+    "main.d.ts",
+    "README.md"
+  ],
+  "main": "./dist/web-storage-cache-crypto.umd.cjs",
+  "module": "./dist/web-storage-cache-crypto.js",
+  "types": "./main.d.ts",
+  "exports": {
+    "types": "./main.d.ts",
+    "import": "./dist/web-storage-cache-crypto.js",
+    "require": "./dist/web-storage-cache-crypto.umd.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acanzaima/web-storage-cache-crypto.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && yarn build:types && vite build",
+    "build:types": "tsc src/main.ts --declaration --emitDeclarationOnly --outDir ./",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.2.6",
+    "vitest": "^1.5.1"
+  },
+  "dependencies": {
+    "js-base64": "^3.7.7"
+  }
+}
