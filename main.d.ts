@@ -46,6 +46,9 @@ export default class WebStorageCacheCrypto {
     get(key: string): any;
     delete(key: string): string;
     deleteAllExpires(): (string | null | undefined)[];
+    getItem(key: string): string | null;
+    setItem(key: string, value: string): void;
+    removeItem(key: string): void;
     clear(): void;
     add(key: string, value: any, options?: Partial<WebStorageCacheCryptoOptions>): boolean;
     replace(key: string, value: any, options?: Partial<WebStorageCacheCryptoOptions>): boolean;

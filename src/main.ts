@@ -217,6 +217,12 @@ const CacheAPI = {
   // @ts-ignore
   deleteAllExpires: function (): (string | null | undefined)[] {},
   // @ts-ignore
+  getItem: function (key: string): any {},
+  // @ts-ignore
+  setItem: function (key: string, val: any): void {},
+  // @ts-ignore
+  removeItem: function (key: string): void {},
+  // @ts-ignore
   clear: function (): void {},
   // @ts-ignore
   add: function (key: string, value: any, options?: Partial<WebStorageCacheCryptoOptions>): boolean {},
@@ -371,6 +377,21 @@ export default class WebStorageCacheCrypto {
       _this.delete(key as string);
     });
     return deleteKeys;
+  }
+
+  // 实现 Storage.getItem 方法
+  getItem(key: string): string | null {
+    return this.get(key) || null;
+  }
+
+  // 实现 Storage.setItem 方法
+  setItem(key: string, value: string): void {
+    this.set(key, value);
+  }
+
+  // 实现 Storage.removeItem 方法
+  removeItem(key: string): void {
+    this.delete(key);
   }
 
   // 清空缓存

@@ -34,4 +34,4 @@ const wsCache = new WebStorageCacheCrypto({
 });
 ```
 
-其他 api 同[WebStorageCache](https://github.com/wuchangming/web-storage-cache)
+其他 api 同[WebStorageCache](https://github.com/wuchangming/web-storage-cache)，`V 0.0.5`增加了对原生`Storage`的`getItem`、`setItem`、`removeItem`API 的兼容
