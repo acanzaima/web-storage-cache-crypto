@@ -49,6 +49,7 @@ export default class WebStorageCacheCrypto {
     getItem(key: string): string | null;
     setItem(key: string, value: string): void;
     removeItem(key: string): void;
+    getEncryptedRaw(key: string): any;
     clear(): void;
     add(key: string, value: any, options?: Partial<WebStorageCacheCryptoOptions>): boolean;
     replace(key: string, value: any, options?: Partial<WebStorageCacheCryptoOptions>): boolean;

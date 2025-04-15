@@ -1,6 +1,6 @@
 {
   "name": "web-storage-cache-crypto",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "acanzaima",
   "description": "Improve Web Storage Cache to support crypto",
   "keywords": [

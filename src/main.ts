@@ -223,6 +223,8 @@ const CacheAPI = {
   // @ts-ignore
   removeItem: function (key: string): void {},
   // @ts-ignore
+  getEncryptedRaw: function (key: string): any {},
+  // @ts-ignore
   clear: function (): void {},
   // @ts-ignore
   add: function (key: string, value: any, options?: Partial<WebStorageCacheCryptoOptions>): boolean {},
@@ -392,6 +394,21 @@ export default class WebStorageCacheCrypto {
   // 实现 Storage.removeItem 方法
   removeItem(key: string): void {
     this.delete(key);
+  }
+
+  // 获取未解密的缓存 （用于在某些加密场景下直接还原存储信息）
+  getEncryptedRaw(key: string): any {
+    // 非加密模式 直接调用 get方法
+    if (!this.crypt) return this.get(key) || null;
+    // 加密模式
+    key = _checkAndWrapKeyAsString(key);
+    let encryptVal: string | null;
+    try {
+      encryptVal = this.storage?.getItem(this.encrypt(key)) as string | null;
+      return encryptVal;
+    } catch (e) {
+      return null;
+    }
   }
 
   // 清空缓存
